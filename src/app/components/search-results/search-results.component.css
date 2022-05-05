@@ -1,0 +1,102 @@
+app-background-img {
+  position: relative;
+}
+.main {
+  position: absolute;
+  top: 6rem;
+  left: 8rem;
+  font-size: 2rem;
+
+  font-size: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 0.1fr;
+}
+
+.plain {
+  margin: 1vw 1vh;
+  padding: 1vw 0.5vh;
+
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+}
+
+/* .noMarginAndPadding {
+  margin: 0;
+  padding: 0;
+} */
+
+.flightDetails {
+  width: 75rem;
+  height: 12rem;
+
+  grid-row: 1;
+  grid-column: 1;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrowImg {
+  height: 8rem;
+  margin: 1rem auto;
+}
+
+.origin {
+  text-align: center;
+  margin: auto 2rem;
+}
+
+.destination {
+  text-align: center;
+  margin: auto 2rem;
+}
+
+/* return */
+
+.returnDetails {
+  width: 75rem;
+  height: 12rem;
+
+  grid-row: 2;
+  grid-column: 1;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.returnOrigin {
+  text-align: center;
+  margin: auto 2rem;
+}
+
+.returnDestination {
+  text-align: center;
+  margin: auto 2rem;
+}
+
+/* book */
+
+.bookNow {
+  grid-row: 3;
+  grid-column: 1 / span 2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceDetails {
+  width: 25rem;
+  text-align: center;
+  align-self: right;
+}
+
+.btnBook {
+  width: 25rem;
+  height: 3rem;
+}

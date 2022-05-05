@@ -1,0 +1,23 @@
+<app-background-img></app-background-img>
+<main>
+  <div class="chooseData">
+    <p class="chooseText">CHOOSE WHERE YOU WANT TO FLY</p>
+    <p class="selectOrigin plain inline">Origin:</p>
+    <p class="selectDestination plain inline">Destination:</p>
+    <br />
+    <p class="selectDeparture plain inline">Departure:</p>
+    <p class="selectReturn plain inline">Return:</p>
+
+    <div class="passengersQuantity plain">
+      <p class="selectPassengers">Pssengers:</p>
+      <p class="labelSelectPassengersBaby inline label">infants:</p>
+      <input type="number" id="selectPassengersBaby" min="0" max="10" />
+      <p class="labelSelectPassengersChild inline label">child:</p>
+      <input type="number" id="selectPassengersChild" min="0" max="40" />
+      <p class="labelSelectPassengersPerson inline label">adult:</p>
+      <input type="number" id="selectPassengersPerson" min="0" max="60" />
+      <!-- accept -->
+      <button class="btn btnSearch" routerLink="/results">SEARCH</button>
+    </div>
+  </div>
+</main>

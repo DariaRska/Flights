@@ -1,0 +1,10 @@
+app-background-img {
+  position: relative;
+}
+
+main {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-size: 2rem;
+}

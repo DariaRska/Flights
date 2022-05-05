@@ -1,0 +1,110 @@
+app-background-img {
+  position: relative;
+}
+
+main {
+  position: absolute;
+  top: 6rem;
+  left: 8rem;
+  font-size: 2rem;
+}
+
+.chooseText {
+  text-align: center;
+}
+
+
+
+.plain {
+  margin: 0.5vw 0.5vh;
+  width: 30vw;
+  height: 10vh;
+  padding: 1vw 0.5vh;
+
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+}
+
+/* input */
+
+input {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+
+  width: 6.25rem;
+}
+
+input:valid {
+  text-align: center;
+}
+
+.label {
+  font-size: 1.2rem;
+}
+
+/* grid */
+
+.passengersQuantity {
+  width: 60.5vw;
+  height: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 0.2fr 1fr 1fr;
+  justify-items: center;
+}
+
+.selectPassengers {
+  grid-column: 2 / span 1;
+  grid-row: 1;
+  margin: 0.2rem;
+}
+
+.labelSelectPassengersBaby {
+  grid-column: 1 / span 1;
+  grid-row: 2;
+  margin: 0.2rem;
+}
+
+#selectPassengersBaby {
+  grid-column: 1 / span 1;
+  grid-row: 3;
+  margin: 0.2rem;
+}
+
+.labelSelectPassengersChild {
+  grid-column: 2 / span 1;
+  grid-row: 2;
+  margin: 0.2rem;
+}
+
+#selectPassengersChild {
+  grid-column: 2 / span 1;
+  grid-row: 3;
+  margin: 0.2rem;
+}
+
+.labelSelectPassengersPerson {
+  grid-column: 3 / span 1;
+  grid-row: 2;
+  margin: 0.2rem;
+}
+
+#selectPassengersPerson {
+  grid-column: 3 / span 1;
+  grid-row: 3;
+  margin: 0.2rem;
+}
+
+.btnSearch {
+  grid-column: 2 / span 1;
+  grid-row: 4;
+  margin: 0.2rem;
+  width: 25rem;
+  margin-top: 2rem;
+}
