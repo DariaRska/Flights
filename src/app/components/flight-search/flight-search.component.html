@@ -2,20 +2,121 @@
 <main>
   <div class="chooseData">
     <p class="chooseText">CHOOSE WHERE YOU WANT TO FLY</p>
-    <p class="selectOrigin plain inline">Origin:</p>
-    <p class="selectDestination plain inline">Destination:</p>
-    <br />
-    <p class="selectDeparture plain inline">Departure:</p>
-    <p class="selectReturn plain inline">Return:</p>
 
-    <div class="passengersQuantity plain">
-      <p class="selectPassengers">Pssengers:</p>
+    <!-- origin -->
+    <p
+      class="selectOrigin plain inline"
+      (mouseenter)="downoladOrigin()"
+      [ngClass]="condition ? 'noOpacity' : ''"
+    >
+      Origin: {{ choosenOriginData }}
+    </p>
+
+    <ng-container *ngIf="showOrigin">
+      <div class="showOriginClass" (mouseleave)="hideData()">
+        <p
+          class="selectOrigin plain inline"
+          *ngFor="let origin of origin"
+          (click)="choosenOrigin(origin)"
+        >
+          {{ origin }}
+        </p>
+      </div>
+    </ng-container>
+
+    <!-- destination -->
+    <p
+      class="selectDestination plain inline"
+      [ngClass]="condition ? 'noOpacity' : ''"
+      (mouseenter)="choosenOriginData ? downoladDestination() : ''"
+    >
+      Destination: {{ choosenDestinationData }}
+    </p>
+
+    <ng-container *ngIf="showDestination">
+      <div class="showDestinationClass" (mouseleave)="hideData()">
+        <p
+          class="selectDestination plain inline"
+          *ngFor="let destination of destination"
+          (click)="choosenDestination(destination)"
+        >
+          {{ destination }}
+        </p>
+      </div>
+    </ng-container>
+
+    <!-- date -->
+    <br />
+    <p
+      class="selectDeparture plain inline"
+      [ngClass]="condition ? 'noOpacity' : ''"
+    >
+      Departure:
+      <input
+        type="date"
+        class="selectDate"
+        min="{{ this.date }}"
+        [(ngModel)]="departureDate"
+        (change)="choosenDepartureDate(departureDate)"
+      />
+    </p>
+    <p
+      class="selectReturn plain inline"
+      [ngClass]="condition ? 'noOpacity' : ''"
+    >
+      Return:
+
+      <input
+        type="date"
+        min="{{ this.date && this.departureDate }}"
+        class="selectDate"
+        [(ngModel)]="returnDate"
+        (change)="choosenReturnDate(returnDate)"
+      />
+    </p>
+
+    <!-- passengers -->
+    <div
+      class="passengersQuantity plain"
+      [ngClass]="condition ? 'noOpacity' : ''"
+    >
+      <p class="selectPassengers">
+        Pssengers:
+        <br />
+        <span class="warning" *ngIf="count >= 9"
+          >Maximum passengers quantity: 9</span
+        >
+      </p>
+      <p class="labelSelectPassengersPerson inline label">adults:</p>
+      <input
+        type="number"
+        id="selectPassengersPerson"
+        min="0"
+        max="60"
+        [(ngModel)]="adults"
+        (change)="adultsQuantity(adults)"
+        [disabled]="count >= 9 ? true : false"
+      />
       <p class="labelSelectPassengersBaby inline label">infants:</p>
-      <input type="number" id="selectPassengersBaby" min="0" max="10" />
-      <p class="labelSelectPassengersChild inline label">child:</p>
-      <input type="number" id="selectPassengersChild" min="0" max="40" />
-      <p class="labelSelectPassengersPerson inline label">adult:</p>
-      <input type="number" id="selectPassengersPerson" min="0" max="60" />
+      <input
+        type="number"
+        id="selectPassengersBaby"
+        min="0"
+        max="10"
+        [(ngModel)]="infants"
+        (change)="infantsQuantity(infants)"
+        [disabled]="count < 9 && this.adults > 0 ? false : true"
+      />
+      <p class="labelSelectPassengersChild inline label">children:</p>
+      <input
+        type="number"
+        id="selectPassengersChild"
+        min="0"
+        max="40"
+        [(ngModel)]="children"
+        (change)="childrenQuantity(children)"
+        [disabled]="count < 9 && this.adults > 0 ? false : true"
+      />
       <!-- accept -->
       <button class="btn btnSearch" routerLink="/results">SEARCH</button>
     </div>

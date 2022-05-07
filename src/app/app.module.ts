@@ -13,6 +13,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundImgComponent } from './components/background-img/background-img.component';
 import { ConfirmationPageComponent } from './components/confirmation-page/confirmation-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ApiDataService } from './services/api-data.service';
+import { UserService } from './services/user.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [ApiDataService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

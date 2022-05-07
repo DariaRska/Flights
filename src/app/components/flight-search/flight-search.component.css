@@ -13,12 +13,10 @@ main {
   text-align: center;
 }
 
-
-
 .plain {
   margin: 0.5vw 0.5vh;
   width: 30vw;
-  height: 10vh;
+  height: auto;
   padding: 1vw 0.5vh;
 
   background-color: #fff;
@@ -40,7 +38,7 @@ input {
   width: 6.25rem;
 }
 
-input:valid {
+input {
   text-align: center;
 }
 
@@ -52,7 +50,7 @@ input:valid {
 
 .passengersQuantity {
   width: 60.5vw;
-  height: 30vh;
+  height: 35vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1.5fr 0.2fr 1fr 1fr;
@@ -65,37 +63,37 @@ input:valid {
   margin: 0.2rem;
 }
 
-.labelSelectPassengersBaby {
-  grid-column: 1 / span 1;
-  grid-row: 2;
-  margin: 0.2rem;
-}
-
-#selectPassengersBaby {
-  grid-column: 1 / span 1;
-  grid-row: 3;
-  margin: 0.2rem;
-}
-
-.labelSelectPassengersChild {
-  grid-column: 2 / span 1;
-  grid-row: 2;
-  margin: 0.2rem;
-}
-
-#selectPassengersChild {
-  grid-column: 2 / span 1;
-  grid-row: 3;
-  margin: 0.2rem;
-}
-
 .labelSelectPassengersPerson {
-  grid-column: 3 / span 1;
+  grid-column: 1 / span 1;
   grid-row: 2;
   margin: 0.2rem;
 }
 
 #selectPassengersPerson {
+  grid-column: 1 / span 1;
+  grid-row: 3;
+  margin: 0.2rem;
+}
+
+.labelSelectPassengersBaby {
+  grid-column: 2 / span 1;
+  grid-row: 2;
+  margin: 0.2rem;
+}
+
+#selectPassengersBaby {
+  grid-column: 2 / span 1;
+  grid-row: 3;
+  margin: 0.2rem;
+}
+
+.labelSelectPassengersChild {
+  grid-column: 3 / span 1;
+  grid-row: 2;
+  margin: 0.2rem;
+}
+
+#selectPassengersChild {
   grid-column: 3 / span 1;
   grid-row: 3;
   margin: 0.2rem;
@@ -107,4 +105,50 @@ input:valid {
   margin: 0.2rem;
   width: 25rem;
   margin-top: 2rem;
+}
+
+/* show on click  */
+
+.showOriginClass {
+  position: absolute;
+  top: 6.5rem;
+  /* left: 1rem; */
+
+  width: 32vw;
+  height: 60vh;
+
+  overflow: hidden;
+  overflow-y: scroll;
+
+  z-index: 5;
+}
+
+.showDestinationClass {
+  position: absolute;
+  top: 6.5rem;
+  right: 0.5rem;
+
+  width: 32vw;
+  height: 60vh;
+
+  overflow: hidden;
+  overflow-y: scroll;
+
+  z-index: 5;
+}
+
+.noOpacity {
+  opacity: 0.3;
+}
+
+/* date */
+
+.selectDate {
+  height: 3rem;
+  text-align: center;
+  margin-left: 1rem;
+  border: 0;
+  box-shadow: none;
+  font-size: 2rem;
+  width: auto;
 }
