@@ -3,10 +3,13 @@
   <div class="flightDetails plain">
     <div class="origin">
       <p class="boldText">Origin:</p>
-      <span class="originCountry">Germany </span>
-      <span class="originCity">Berlin</span>
-      <p class="departureTimeDetails boldText">Departure time:</p>
-      <span class="departureTime">03:30PM</span>
+      {{ origin }}
+
+      <p class="departureTimeDetails boldText">Departure:</p>
+      {{ departureDate }} <br />
+      <span class="departureTime">
+        {{ departureTime }}
+      </span>
     </div>
     <div>
       <!-- icon source: <a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Pixel perfect - Flaticon</a> -->
@@ -15,19 +18,24 @@
     </div>
     <div class="destination">
       <p class="boldText">Destination:</p>
-      <span class="destinationCountry">Poland </span>
-      <span class="destinationCity">Warsaw</span>
-      <p class="arrivalTimeDetails boldText">Arrival time:</p>
-      <span class="arrivalTime">05:20AM</span>
+      {{ destination }}
+      <p class="arrivalTimeDetails boldText">Arrival:</p>
+      <span class="arrivalTime">
+        {{ arrivalTime }}
+      </span>
     </div>
   </div>
-  <div class="returnDetails plain">
+
+  <!-- if it's to way trip -->
+
+  <div *ngIf="returnDate" class="returnDetails plain">
     <div class="returnOrigin">
       <p class="boldText">Return origin:</p>
-      <span class="returnOriginCountry">Poland </span>
-      <span class="returnOriginCity">Warsaw</span>
-      <p class="returnDepartureTimeDetails boldText">Departure time:</p>
-      <span class="returnDepartureTime">03:30PM</span>
+      {{ destination }}
+
+      <p class="returnDepartureTimeDetails boldText">Departure:</p>
+      {{ returnDate }} <br />
+      <span class="returnDepartureTime"> {{ returnDepartureTime }} </span>
     </div>
     <div>
       <!-- icon source: <a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Pixel perfect - Flaticon</a> -->
@@ -36,16 +44,22 @@
     </div>
     <div class="returnDestination">
       <p class="boldText">Return destination:</p>
-      <span class="returnDestinationCountry">Germany </span>
-      <span class="returnDestinationCity">Berlin</span>
-      <p class="returnArrivalTimeDetails boldText">Arrival time:</p>
-      <span class="returnArrivalTime">05:20AM</span>
+
+      {{ origin }}
+
+      <p class="returnArrivalTimeDetails boldText">Arrival:</p>
+      <span class="returnArrivalTime"> {{ returnArrivalTime }} </span>
     </div>
   </div>
   <div class="bookNow">
     <div class="priceDetails plain">
       <p class="boldText">Price:</p>
-      <span class="price">345 <span class="currency">USD</span> </span>
+      <span class="price">
+        {{ price }}
+        <span class="currency">
+          {{ currency }}
+        </span>
+      </span>
     </div>
     <button class="btn btnBook" routerLink="/seats">BOOK NOW</button>
   </div>

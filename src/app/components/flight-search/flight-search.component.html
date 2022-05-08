@@ -118,7 +118,17 @@
         [disabled]="count < 9 && this.adults > 0 ? false : true"
       />
       <!-- accept -->
-      <button class="btn btnSearch" routerLink="/results">SEARCH</button>
+      <button
+        class="btn btnSearch"
+        routerLink="/results"
+        [disabled]="
+          origin && destination && departureDate && count > 0 ? false : true
+        "
+
+        (click)="send()"
+      >
+        SEARCH
+      </button>
     </div>
   </div>
 </main>

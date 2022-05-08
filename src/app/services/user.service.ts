@@ -15,4 +15,12 @@ export class UserService {
   adults: any;
   infants: any;
   children: any;
+
+  departureTime: any;
+  arrivalTime: any;
+  price: any;
+  currency: any;
+
+  returnDepartureTime: any;
+  returnArrivalTime: any;
 }

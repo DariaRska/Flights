@@ -36,6 +36,29 @@ export class FlightSearchComponent implements OnInit {
 
   count: number = 0;
 
+  ///////////////////////////////////////////////////////
+  ////////////////////// test //////////////////////////
+  /////////////////////////////////////////////////////
+
+  originCountry: any;
+  orginCountryIndex: any;
+  destinationCountry: any;
+  destinationIndex: any;
+
+  departureTime: any;
+  arrivalTime: any;
+  price: any;
+  currency: any;
+
+  returnDepartureCountry: any;
+  returnArrivalCountry: any;
+
+  returnDepartureCountryIndex: any;
+  returnArrivalCountryIndex: any;
+
+  returnDepartureTime: any;
+  returnArrivalTime: any;
+
   constructor(
     private apiData: ApiDataService,
     private userService: UserService
@@ -120,6 +143,9 @@ export class FlightSearchComponent implements OnInit {
   choosenDepartureDate(param: string) {
     this.departureDate = param;
     this.userService.departureDate = this.departureDate;
+    // bug fixed - routerLink on navbar, now shows good results, when there's no return date
+    this.returnDate = '';
+    this.userService.returnDate = '';
   }
 
   choosenReturnDate(param: string) {
@@ -162,5 +188,103 @@ export class FlightSearchComponent implements OnInit {
     this.userService.children = this.children;
 
     this.countPeople();
+  }
+
+  ///////////////////////////////////////////////////////
+  ////////////////////// test //////////////////////////
+  /////////////////////////////////////////////////////
+
+  // send data to service:
+
+  send() {
+    // origin and destination country + index
+
+    this.originCountry = this.choosenOriginData
+      .split('-')[0]
+      .slice(0, this.choosenOriginData.split('-')[0].length - 1);
+
+    this.orginCountryIndex = this.flightsData[0].airports.findIndex(
+      (x: any) => x.originCountry === this.originCountry
+    );
+
+    this.destinationCountry = this.choosenDestinationData
+      .split('-')[0]
+      .slice(0, this.choosenDestinationData.split('-')[0].length - 1);
+
+    this.destinationIndex = this.flightsData[0].airports[
+      this.orginCountryIndex
+    ].destinations.findIndex(
+      (x: any) => x.destinationCountry === this.destinationCountry
+    );
+
+    // origin and destination data
+
+    this.departureTime =
+      this.flightsData[0].airports[this.orginCountryIndex].destinations[
+        this.destinationIndex
+      ].departureTime;
+
+    this.userService.departureTime = this.departureTime;
+
+    this.arrivalTime =
+      this.flightsData[0].airports[this.orginCountryIndex].destinations[
+        this.destinationIndex
+      ].arrival;
+
+    this.userService.arrivalTime = this.arrivalTime;
+
+    this.price =
+      this.flightsData[0].airports[this.orginCountryIndex].destinations[
+        this.destinationIndex
+      ].price;
+
+    this.userService.price = this.price;
+
+    this.currency =
+      this.flightsData[0].airports[this.orginCountryIndex].destinations[
+        this.destinationIndex
+      ].currency;
+
+    this.userService.currency = this.currency;
+
+    // people
+
+    this.userService.adults = this.adults;
+    this.userService.infants = this.infants;
+    this.userService.children = this.children;
+
+    // two way trip
+
+    this.returnDepartureCountry = this.choosenDestinationData
+      .split('-')[0]
+      .slice(0, this.choosenDestinationData.split('-')[0].length - 1);
+
+    this.returnDepartureCountryIndex = this.flightsData[0].airports.findIndex(
+      (x: any) => x.originCountry === this.returnDepartureCountry
+    );
+
+    this.returnArrivalCountry = this.choosenOriginData
+      .split('-')[0]
+      .slice(0, this.choosenOriginData.split('-')[0].length - 1);
+
+    this.returnArrivalCountryIndex = this.flightsData[0].airports[
+      this.returnDepartureCountryIndex
+    ].destinations.findIndex(
+      (x: any) => x.destinationCountry === this.returnArrivalCountry
+    );
+
+    this.returnDepartureTime =
+      this.flightsData[0].airports[
+        this.returnDepartureCountryIndex
+      ].destinations[this.returnArrivalCountryIndex].departureTime;
+
+    this.userService.returnDepartureTime = this.returnDepartureTime;
+
+    this.returnArrivalTime =
+      this.flightsData[0].airports[
+        this.returnDepartureCountryIndex
+      ].destinations[this.returnArrivalCountryIndex].arrival;
+
+    this.userService.returnArrivalTime = this.returnArrivalTime;
   }
 }
