@@ -37,7 +37,7 @@ export class FlightSearchComponent implements OnInit {
   count: number = 0;
 
   ///////////////////////////////////////////////////////
-  ////////////////////// test //////////////////////////
+  ////////////////////// send //////////////////////////
   /////////////////////////////////////////////////////
 
   originCountry: any;
@@ -143,7 +143,7 @@ export class FlightSearchComponent implements OnInit {
   choosenDepartureDate(param: string) {
     this.departureDate = param;
     this.userService.departureDate = this.departureDate;
-    // bug fixed - routerLink on navbar, now shows good results, when there's no return date
+    // showgood result without returnDate
     this.returnDate = '';
     this.userService.returnDate = '';
   }
@@ -191,7 +191,7 @@ export class FlightSearchComponent implements OnInit {
   }
 
   ///////////////////////////////////////////////////////
-  ////////////////////// test //////////////////////////
+  ////////////////////// send //////////////////////////
   /////////////////////////////////////////////////////
 
   // send data to service:
