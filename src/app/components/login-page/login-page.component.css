@@ -1,0 +1,66 @@
+.login-page {
+  display: grid;
+  grid-template-rows: 50vw;
+  grid-template-columns: 50vh;
+
+  place-items: center;
+  justify-content: center;
+}
+
+.form {
+  grid-row: 1;
+  grid-column: 1;
+  font-size: 2rem;
+
+  display: grid;
+  grid-template-rows: 1fr 0.3fr 1fr 0.3fr 1fr;
+}
+
+.input {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  line-height: 2rem;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.email {
+  grid-row: 1;
+}
+
+.err-email {
+  grid-row: 2;
+}
+
+.password {
+  grid-row: 3;
+}
+
+.err-p {
+  grid-row: 4;
+}
+
+.btn-submit {
+  align-self: center;
+  grid-row: 5;
+
+  justify-self: center;
+}
+
+.error {
+  color: rgba(255, 0, 0, 0.767);
+  font-size: 0.7rem;
+}
+
+/* smaller devices */
+
+@media only screen and (max-width: 700px) {
+  .login-page {
+    margin: 20vh;
+  }
+}

@@ -2,5 +2,10 @@
   <div class="logo boldText" routerLink="/">
     <fa-icon [icon]="faPlane"></fa-icon> Fly away
   </div>
-  <button class="btn btn-login">Login</button>
+  <button class="btn btn-login" routerLink="/login" *ngIf="!isAuth">
+    Login
+  </button>
+  <button class="btn btn-login" *ngIf="isAuth" (click)="logout()">
+    Logout
+  </button>
 </nav>

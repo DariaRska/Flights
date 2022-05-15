@@ -1,1 +1,37 @@
-<p>login-page works!</p>
+<section class="login-page">
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input
+      type="email"
+      placeholder="Your email"
+      class="input email"
+      ngModel
+      name="email"
+      email
+      required
+      #emailInput="ngModel"
+    />
+    <p *ngIf="emailInput.hasError('required')" class="error err-email">
+      Required
+    </p>
+    <p *ngIf="emailInput.hasError('email')" class="error err-email">
+      E-mail is invalid
+    </p>
+    <input
+      type="password"
+      placeholder="Your password"
+      class="input password"
+      ngModel
+      name="password"
+      minlength="6"
+      required
+      #pwInput="ngModel"
+    />
+    <p *ngIf="pwInput.hasError('required')" class="error err-p">Required</p>
+    <p *ngIf="pwInput.hasError('minlength')" class="error err-p">
+      Should be at least 6 characters long.
+    </p>
+    <button type="submit" class="btn btn-submit" [disabled]="form.invalid">
+      Submit
+    </button>
+  </form>
+</section>

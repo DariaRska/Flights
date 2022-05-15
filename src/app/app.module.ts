@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ApiDataService } from './services/api-data.service';
 import { UserService } from './services/user.service';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { FormsModule } from '@angular/forms';
     FontAwesomeModule,
     FormsModule,
   ],
-  providers: [ApiDataService, UserService],
+  providers: [ApiDataService, UserService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
