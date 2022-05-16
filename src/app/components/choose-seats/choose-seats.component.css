@@ -1,8 +1,85 @@
-svg {
+ul {
+  list-style-type: none;
+}
+
+.plane {
   position: absolute;
   top: 6rem;
   left: 20rem;
   font-size: 2rem;
+}
+
+.plain {
+  margin: 0.5vw 0.5vh;
+  width: auto;
+  padding: 1vw 0.5vh;
+
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+}
+
+.chosenData {
+  position: absolute;
+  top: 8vh;
+  right: 10vw;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.labels {
+  grid-column: 1;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.origin {
+  grid-row: 1;
+}
+.destination {
+  grid-row: 2;
+}
+.adults {
+  grid-row: 3;
+}
+.infants {
+  grid-row: 4;
+}
+.children {
+  grid-row: 5;
+}
+.selectedSeats {
+  grid-row: 6;
+}
+
+.data {
+  grid-column: 2;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.originData {
+  grid-row: 1;
+}
+.destinationData {
+  grid-row: 2;
+}
+.adultsData {
+  grid-row: 3;
+}
+.infantsData {
+  grid-row: 4;
+}
+.childrenData {
+  grid-row: 5;
+}
+.selectedSeatsData {
+  grid-row: 6;
 }
 
 /* test */

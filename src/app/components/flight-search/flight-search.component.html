@@ -9,7 +9,7 @@
       (mouseenter)="downoladOrigin()"
       [ngClass]="condition ? 'noOpacity' : ''"
     >
-      Origin: {{ choosenOriginData }}
+      Origin: {{ selectedOriginData }}
     </p>
 
     <ng-container *ngIf="showOrigin">
@@ -17,7 +17,7 @@
         <p
           class="selectOrigin plain inline"
           *ngFor="let origin of origin"
-          (click)="choosenOrigin(origin)"
+          (click)="selectedOrigin(origin)"
         >
           {{ origin }}
         </p>
@@ -28,9 +28,9 @@
     <p
       class="selectDestination plain inline"
       [ngClass]="condition ? 'noOpacity' : ''"
-      (mouseenter)="choosenOriginData ? downoladDestination() : ''"
+      (mouseenter)="selectedOriginData ? downoladDestination() : ''"
     >
-      Destination: {{ choosenDestinationData }}
+      Destination: {{ selectedDestinationData }}
     </p>
 
     <ng-container *ngIf="showDestination">
@@ -38,7 +38,7 @@
         <p
           class="selectDestination plain inline"
           *ngFor="let destination of destination"
-          (click)="choosenDestination(destination)"
+          (click)="selectedDestination(destination)"
         >
           {{ destination }}
         </p>
@@ -57,7 +57,7 @@
         class="selectDate"
         min="{{ this.date }}"
         [(ngModel)]="departureDate"
-        (change)="choosenDepartureDate(departureDate)"
+        (change)="selectedDepartureDate(departureDate)"
       />
     </p>
     <p
@@ -71,7 +71,7 @@
         min="{{ this.date && this.departureDate }}"
         class="selectDate"
         [(ngModel)]="returnDate"
-        (change)="choosenReturnDate(returnDate)"
+        (change)="selectedReturnDate(returnDate)"
       />
     </p>
 

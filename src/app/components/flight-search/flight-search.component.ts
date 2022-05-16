@@ -17,10 +17,10 @@ export class FlightSearchComponent implements OnInit {
   origin: Array<string> = [];
   destination: Array<string> = [];
 
-  choosenOriginData: string = '';
-  choosenOrginCountryIndex: number = -1;
+  selectedOriginData: string = '';
+  selectedOrginCountryIndex: number = -1;
 
-  choosenDestinationData: string = '';
+  selectedDestinationData: string = '';
 
   // date
 
@@ -88,15 +88,15 @@ export class FlightSearchComponent implements OnInit {
     this.showOrigin = true;
   }
 
-  // show destination when the orgin is choosen
+  // show destination when the orgin is selected
 
   downoladDestination() {
     this.apiData.getApiData();
 
-    // based on choosenOrginCountryIndex
+    // based on selectedOrginCountryIndex
 
     this.destination = this.flightsData[0].airports[
-      this.choosenOrginCountryIndex
+      this.selectedOrginCountryIndex
     ].destinations.map(function (el: any) {
       return `${el.destinationCountry} - ${el.destinationCity}`;
     });
@@ -113,26 +113,26 @@ export class FlightSearchComponent implements OnInit {
 
   // userService
 
-  choosenOrigin(param: string) {
-    this.choosenOriginData = param;
-    this.userService.origin = this.choosenOriginData;
+  selectedOrigin(param: string) {
+    this.selectedOriginData = param;
+    this.userService.origin = this.selectedOriginData;
 
     this.condition = false;
     this.showOrigin = false;
-    this.choosenDestinationData = '';
+    this.selectedDestinationData = '';
 
-    let choosenOriginCountry: any = this.choosenOriginData
+    let selectedOriginCountry: any = this.selectedOriginData
       .split('-')[0]
-      .slice(0, this.choosenOriginData.split('-')[0].length - 1);
+      .slice(0, this.selectedOriginData.split('-')[0].length - 1);
 
-    this.choosenOrginCountryIndex = this.flightsData[0].airports.findIndex(
-      (x: any) => x.originCountry === choosenOriginCountry
+    this.selectedOrginCountryIndex = this.flightsData[0].airports.findIndex(
+      (x: any) => x.originCountry === selectedOriginCountry
     );
   }
 
-  choosenDestination(param: string) {
-    this.choosenDestinationData = param;
-    this.userService.destination = this.choosenDestinationData;
+  selectedDestination(param: string) {
+    this.selectedDestinationData = param;
+    this.userService.destination = this.selectedDestinationData;
 
     this.condition = false;
     this.showDestination = false;
@@ -140,7 +140,7 @@ export class FlightSearchComponent implements OnInit {
 
   // date
 
-  choosenDepartureDate(param: string) {
+  selectedDepartureDate(param: string) {
     this.departureDate = param;
     this.userService.departureDate = this.departureDate;
     // showgood result without returnDate
@@ -148,7 +148,7 @@ export class FlightSearchComponent implements OnInit {
     this.userService.returnDate = '';
   }
 
-  choosenReturnDate(param: string) {
+  selectedReturnDate(param: string) {
     this.returnDate = param;
     this.userService.returnDate = this.returnDate;
   }
@@ -199,17 +199,17 @@ export class FlightSearchComponent implements OnInit {
   send() {
     // origin and destination country + index
 
-    this.originCountry = this.choosenOriginData
+    this.originCountry = this.selectedOriginData
       .split('-')[0]
-      .slice(0, this.choosenOriginData.split('-')[0].length - 1);
+      .slice(0, this.selectedOriginData.split('-')[0].length - 1);
 
     this.orginCountryIndex = this.flightsData[0].airports.findIndex(
       (x: any) => x.originCountry === this.originCountry
     );
 
-    this.destinationCountry = this.choosenDestinationData
+    this.destinationCountry = this.selectedDestinationData
       .split('-')[0]
-      .slice(0, this.choosenDestinationData.split('-')[0].length - 1);
+      .slice(0, this.selectedDestinationData.split('-')[0].length - 1);
 
     this.destinationIndex = this.flightsData[0].airports[
       this.orginCountryIndex
@@ -255,17 +255,17 @@ export class FlightSearchComponent implements OnInit {
 
     // two way trip
 
-    this.returnDepartureCountry = this.choosenDestinationData
+    this.returnDepartureCountry = this.selectedDestinationData
       .split('-')[0]
-      .slice(0, this.choosenDestinationData.split('-')[0].length - 1);
+      .slice(0, this.selectedDestinationData.split('-')[0].length - 1);
 
     this.returnDepartureCountryIndex = this.flightsData[0].airports.findIndex(
       (x: any) => x.originCountry === this.returnDepartureCountry
     );
 
-    this.returnArrivalCountry = this.choosenOriginData
+    this.returnArrivalCountry = this.selectedOriginData
       .split('-')[0]
-      .slice(0, this.choosenOriginData.split('-')[0].length - 1);
+      .slice(0, this.selectedOriginData.split('-')[0].length - 1);
 
     this.returnArrivalCountryIndex = this.flightsData[0].airports[
       this.returnDepartureCountryIndex
