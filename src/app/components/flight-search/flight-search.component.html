@@ -6,14 +6,14 @@
     <!-- origin -->
     <p
       class="selectOrigin plain inline"
-      (mouseenter)="downoladOrigin()"
+      (click)="downoladOrigin()"
       [ngClass]="condition ? 'noOpacity' : ''"
     >
       Origin: {{ selectedOriginData }}
     </p>
 
     <ng-container *ngIf="showOrigin">
-      <div class="showOriginClass" (mouseleave)="hideData()">
+      <div class="showOriginClass">
         <p
           class="selectOrigin plain inline"
           *ngFor="let origin of origin"
@@ -28,13 +28,13 @@
     <p
       class="selectDestination plain inline"
       [ngClass]="condition ? 'noOpacity' : ''"
-      (mouseenter)="selectedOriginData ? downoladDestination() : ''"
+      (click)="selectedOriginData ? downoladDestination() : ''"
     >
       Destination: {{ selectedDestinationData }}
     </p>
 
     <ng-container *ngIf="showDestination">
-      <div class="showDestinationClass" (mouseleave)="hideData()">
+      <div class="showDestinationClass">
         <p
           class="selectDestination plain inline"
           *ngFor="let destination of destination"

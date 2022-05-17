@@ -10,7 +10,7 @@ main {
 }
 
 /* smaller devices */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   main {
     position: absolute;
     top: 10vh;
@@ -51,7 +51,7 @@ input {
 }
 
 /* smaller devices */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   input {
     width: 80vw;
   }
@@ -123,34 +123,79 @@ input {
 }
 
 /* smaller devices grid */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   .chooseData {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 10vh 10vh 10vh 15vh 15vh 10vh;
+    text-align: center;
   }
 
   .chooseText {
     grid-row: 1;
 
-    width: 100vw;
+    width: 95vw;
     margin: 1vh 0;
   }
   .selectOrigin {
     grid-row: 2;
+    width: 95vw;
   }
   .selectDestination {
     grid-row: 3;
+    width: 95vw;
   }
   .selectDeparture {
     grid-row: 4;
+    width: 95vw;
   }
   .selectReturn {
     grid-row: 5;
+    width: 95vw;
   }
+
+  input {
+    display: block;
+  }
+
   .passengersQuantity {
     grid-row: 6;
+    width: 95vw;
 
     display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .selectPassengers {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .labelSelectPassengersPerson {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  #selectPassengersPerson {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  .labelSelectPassengersBaby {
+    grid-row: 4;
+    grid-column: 1;
+  }
+  #selectPassengersBaby {
+    grid-row: 5;
+    grid-column: 1;
+  }
+  .labelSelectPassengersChild {
+    grid-row: 6;
+    grid-column: 1;
+  }
+  #selectPassengersChild {
+    grid-row: 7;
+    grid-column: 1;
+  }
+  .btnSearch {
+    grid-row: 8;
+    grid-column: 1;
   }
 }
 
@@ -159,7 +204,6 @@ input {
 .showOriginClass {
   position: absolute;
   top: 6.5rem;
-  /* left: 1rem; */
 
   width: 32vw;
   height: 60vh;
@@ -168,6 +212,13 @@ input {
   overflow-y: scroll;
 
   z-index: 5;
+}
+
+@media only screen and (max-width: 1000px) {
+  .showOriginClass {
+    width: 100vw;
+    height: 50vh;
+  }
 }
 
 .showDestinationClass {
@@ -184,6 +235,13 @@ input {
   z-index: 5;
 }
 
+@media only screen and (max-width: 1000px) {
+  .showDestinationClass {
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
 .noOpacity {
   opacity: 0.3;
 }
@@ -198,4 +256,10 @@ input {
   box-shadow: none;
   font-size: 2rem;
   width: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+  .selectDate {
+    width: 80vw;
+  }
 }

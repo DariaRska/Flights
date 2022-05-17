@@ -128,6 +128,8 @@ export class FlightSearchComponent implements OnInit {
     this.selectedOrginCountryIndex = this.flightsData[0].airports.findIndex(
       (x: any) => x.originCountry === selectedOriginCountry
     );
+
+    this.hideData();
   }
 
   selectedDestination(param: string) {
@@ -136,6 +138,8 @@ export class FlightSearchComponent implements OnInit {
 
     this.condition = false;
     this.showDestination = false;
+
+    this.hideData();
   }
 
   // date

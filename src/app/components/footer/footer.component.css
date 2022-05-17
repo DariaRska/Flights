@@ -17,3 +17,10 @@ footer a {
   text-decoration: none;
   color: #1a1a40;
 }
+
+/* smaller devices */
+@media only screen and (max-width: 1000px) {
+  .footer {
+    display: none;
+  }
+}
