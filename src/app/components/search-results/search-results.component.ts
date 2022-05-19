@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { faPlane } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search-results',
@@ -7,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./search-results.component.css'],
 })
 export class SearchResultsComponent implements OnInit {
+  faPlane = faPlane;
+
   flightsData: Array<any> = [];
 
   origin: string = '';

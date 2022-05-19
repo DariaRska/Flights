@@ -1,6 +1,7 @@
 app-background-img {
   position: relative;
 }
+
 .main {
   position: absolute;
   top: 6rem;
@@ -14,6 +15,17 @@ app-background-img {
   grid-template-rows: 1fr 1fr 0.1fr;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .main {
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    width: 100vw;
+    justify-items: center;
+  }
+}
+
 .plain {
   margin: 1vw 1vh;
   padding: 1vw 0.5vh;
@@ -25,14 +37,9 @@ app-background-img {
   box-sizing: border-box;
 }
 
-/* .noMarginAndPadding {
-  margin: 0;
-  padding: 0;
-} */
-
 .flightDetails {
-  width: 75rem;
-  height: 12rem;
+  width: 80vw;
+  height: 28vh;
 
   grid-row: 1;
   grid-column: 1;
@@ -41,9 +48,22 @@ app-background-img {
   justify-content: space-between;
 }
 
-.arrowImg {
-  height: 8rem;
-  margin: 1rem auto;
+.icon {
+  text-align: center;
+  font-size: 20vh;
+  line-height: 2rem;
+  padding: 0 10px 0 11px;
+  width: 8rem;
+  color: #03529794;
+  cursor: pointer;
+  margin: 2vh auto;
+}
+
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .icon {
+    display: none;
+  }
 }
 
 .origin {
@@ -51,16 +71,32 @@ app-background-img {
   margin: auto 2rem;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .origin {
+    width: 40vw;
+    padding: 1vh 3vw;
+  }
+}
+
 .destination {
   text-align: center;
   margin: auto 2rem;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .destination {
+    width: 40vw;
+    padding: 1vh 3vw;
+  }
+}
+
 /* return */
 
 .returnDetails {
-  width: 75rem;
-  height: 12rem;
+  width: 80vw;
+  height: 28vh;
 
   grid-row: 2;
   grid-column: 1;
@@ -74,9 +110,25 @@ app-background-img {
   margin: auto 2rem;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .returnOrigin {
+    width: 40vw;
+    padding: 1vh 3vw;
+  }
+}
+
 .returnDestination {
   text-align: center;
   margin: auto 2rem;
+}
+
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .returnDestination {
+    width: 40vw;
+    padding: 1vh 3vw;
+  }
 }
 
 /* book */
@@ -90,13 +142,39 @@ app-background-img {
   align-items: center;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .bookNow {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
 .priceDetails {
   width: 25rem;
   text-align: center;
   align-self: right;
 }
 
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .priceDetails {
+    grid-row: 1;
+    width: 80vw;
+    align-self: center;
+  }
+}
+
 .btnBook {
   width: 25rem;
   height: 3rem;
+}
+
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .btnBook {
+    grid-row: 2;
+    width: 80vw;
+    height: 5vh;
+  }
 }

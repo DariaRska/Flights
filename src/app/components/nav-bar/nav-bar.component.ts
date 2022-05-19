@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class NavBarComponent implements OnInit, OnDestroy {
   faPlane = faPlane;
   isAuth: boolean = false;
-  authSubscription: Subscription | any;
+  authSubscription: Subscription = new Subscription();
 
   constructor(private authService: AuthService) {}
 

@@ -9,3 +9,12 @@
   margin: 0;
   padding: 0;
 }
+
+/* smaller devices grid */
+@media only screen and (max-width: 1000px) {
+  .background-img {
+    background-repeat: repeat-y;
+    height: 125vh;
+    width: 100vw;
+  }
+}

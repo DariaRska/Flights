@@ -10,7 +10,7 @@ ul {
 }
 
 /* smaller devices grid */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 1000px) {
   .plane {
     top: 40vh;
     left: 0;

@@ -160,6 +160,7 @@ input {
   .passengersQuantity {
     grid-row: 6;
     width: 95vw;
+    height: 45vh;
 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -196,6 +197,8 @@ input {
   .btnSearch {
     grid-row: 8;
     grid-column: 1;
+    width: 80vw;
+    margin-top: 2vh;
   }
 }
 

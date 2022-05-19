@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApiDataService } from 'src/app/services/api-data.service';
 import { UserService } from 'src/app/services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-flight-search',
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css'],
 })
-export class FlightSearchComponent implements OnInit {
+export class FlightSearchComponent implements OnInit, OnDestroy {
+  private subscription: Subscription = new Subscription();
+
   flightsData: Array<any> = [];
 
   condition: boolean = false;
@@ -70,7 +73,7 @@ export class FlightSearchComponent implements OnInit {
 
     // apiService
 
-    this.apiData.getApiData().subscribe((data: any) => {
+    this.subscription = this.apiData.getApiData().subscribe((data: any) => {
       this.flightsData.push(data);
     });
   }
@@ -290,5 +293,9 @@ export class FlightSearchComponent implements OnInit {
       ].destinations[this.returnArrivalCountryIndex].arrival;
 
     this.userService.returnArrivalTime = this.returnArrivalTime;
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
