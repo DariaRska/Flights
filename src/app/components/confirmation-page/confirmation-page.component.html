@@ -1,7 +1,22 @@
 <app-background-img></app-background-img>
 <main>
-  <h1>
+  <h1 class="thanksText">
     Thank you for choosing us! <br />
     Have a wondefully and save trip!
   </h1>
+  <section class="summary plain">
+    <p class="summaryText">Summary:</p>
+    <ul class="summaryList">
+      <li>Origin: {{ origin }}</li>
+      <li>Destination: {{ destination }}</li>
+      <li *ngIf="returnDate">Return date: {{ returnDate }}</li>
+      <li *ngIf="returnDate">Return origin: {{ destination }}</li>
+      <li *ngIf="returnDate">Return destination: {{ origin }}</li>
+      <li>Adults: {{ adults }}</li>
+      <li *ngIf="infants">Infants: {{ infants }}</li>
+      <li *ngIf="children">Children: {{ children }}</li>
+      <li>Selected luggage option: {{ selectedPrice }}</li>
+      <li>Selected seats: {{ seats }}</li>
+    </ul>
+  </section>
 </main>

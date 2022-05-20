@@ -26,7 +26,10 @@ export class UserService {
   returnDepartureTime: any;
   returnArrivalTime: any;
 
-  // for learning purposes only
+  selectedPrice: number = 0;
+  seats: string[] = [];
+
+  // these credentials are for learning purposes only:
 
   user1: User = {
     email: 'test@test.com',

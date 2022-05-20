@@ -1,5 +1,4 @@
 .footer {
-  /* background-color: rgba(51, 51, 51, 0.26); */
   color: #1a1a40;
   position: fixed;
   bottom: 0;
@@ -21,7 +20,6 @@ footer a {
 /* smaller devices */
 @media only screen and (max-width: 1000px) {
   .footer {
-    position: absolute;
-    bottom: -25vh;
+    display: none;
   }
 }

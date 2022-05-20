@@ -24,7 +24,7 @@ export class SearchResultsComponent implements OnInit {
 
   departureTime: any;
   arrivalTime: any;
-  price: any;
+  price: any[] = [];
   currency: any;
 
   originCountry: any;
@@ -34,6 +34,9 @@ export class SearchResultsComponent implements OnInit {
 
   returnDepartureTime: any;
   returnArrivalTime: any;
+
+  showLuggageOptions: boolean = false;
+  disabledBtn: boolean = true;
 
   constructor(private userService: UserService) {}
 
@@ -56,12 +59,31 @@ export class SearchResultsComponent implements OnInit {
     this.children = this.userService.children;
 
     // price and currency
-    this.price = parseInt(this.userService.price);
-    this.price = this.adults * this.price + this.children * this.price * 0.5;
+    this.price.push(
+      this.adults * parseInt(this.userService.price) +
+        this.children * parseInt(this.userService.price) * 0.5
+    );
+    this.price.push(
+      (this.adults * parseInt(this.userService.price) +
+        this.children * parseInt(this.userService.price) * 0.5) *
+        1.2
+    );
     this.currency = this.userService.currency;
 
     // return time
     this.returnDepartureTime = this.userService.returnDepartureTime;
     this.returnArrivalTime = this.userService.returnArrivalTime;
+  }
+
+  showLuggage() {
+    this.showLuggageOptions = true;
+    this.userService.selectedPrice = 0;
+    this.disabledBtn = true;
+  }
+
+  selectedLuggage(price: number) {
+    this.showLuggageOptions = false;
+    this.disabledBtn = false;
+    this.userService.selectedPrice = price;
   }
 }

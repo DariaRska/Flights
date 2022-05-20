@@ -48,15 +48,25 @@
     </div>
   </div>
   <div class="bookNow">
-    <div class="priceDetails plain">
-      <p class="boldText">Price:</p>
-      <span class="price">
-        {{ price }}
-        <span class="currency">
-          {{ currency }}
-        </span>
-      </span>
+    <div class="priceDetails plain btn">
+      <p (click)="showLuggage()" class="boldText">Select luggage option</p>
+
+      <ng-container *ngIf="showLuggageOptions">
+        <div class="selectLuggage plain">
+          <p
+            class="plain"
+            *ngFor="let price of price"
+            (click)="selectedLuggage(price)"
+          >
+            Only standard luggage:
+            {{ price }}
+            {{ currency }}
+          </p>
+        </div>
+      </ng-container>
     </div>
-    <button class="btn btnBook" routerLink="/seats">BOOK NOW</button>
+    <button class="btn btnBook" routerLink="/seats" [disabled]="disabledBtn">
+      BOOK NOW
+    </button>
   </div>
 </main>

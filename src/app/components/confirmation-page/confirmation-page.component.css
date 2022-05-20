@@ -2,9 +2,13 @@ app-background-img {
   position: relative;
 }
 
+ul {
+  list-style-type: circle;
+}
+
 main {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 10%;
   font-size: 2rem;
 }
@@ -13,5 +17,40 @@ main {
 @media only screen and (max-width: 700px) {
   h1 {
     font-size: 5vh;
+  }
+
+  main {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+  }
+}
+
+.plain {
+  margin: 1vw 1vh;
+  padding: 1vw 0.5vh;
+
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+}
+
+.summary {
+  font-size: 1.5rem;
+}
+
+/* smaller devices */
+@media only screen and (max-width: 700px) {
+  .summary {
+    font-size: 1rem;
+    width: 90vw;
+  }
+
+  .plain {
+    margin: 0;
+    padding: 0;
   }
 }
