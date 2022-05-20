@@ -1,3 +1,21 @@
+# Login credentials
+
+Login credentials - only for testing and learning purposes:
+user1: {
+email: 'test@test.com',
+password: 'testtest',
+},
+user2: {
+email: 'admin@admin.com,
+password: 'adminadmin',
+},
+user3: {
+email: 'user@example.com',
+password: 'exampleexample',
+}
+
+---
+
 # FlightBooking
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
